@@ -1,0 +1,15 @@
+gradio
+requests
+Pillow
+fastapi
+uvicorn
+numpy
+pandas
+scipy
+torch
+torchvision
+
+
+# yolov8
+ultralytics
+
