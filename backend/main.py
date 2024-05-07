@@ -8,6 +8,8 @@ from fastapi.responses import StreamingResponse
 from ultralytics import YOLO
 
 app = FastAPI()
+# model for inference
+model = YOLO('yolov8n.pt', task="eval")
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
@@ -23,7 +25,7 @@ async def predict(file: UploadFile = File(...)):
     
     try:
         image = Image.open(io.BytesIO(image_data)).convert("RGB")
-        annotated_image = inference_image(image)
+        annotated_image = inference_image(model, image)
     except IOError:
         raise HTTPException(status_code=500, detail="Failed to process image")
     

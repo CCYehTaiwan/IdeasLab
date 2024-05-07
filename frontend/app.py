@@ -10,8 +10,10 @@ def predict(image):
     image.save(img_bytes, format='JPEG')
     img_bytes.seek(0)
 
+    filename = "test_image.jpg"
+
     # 向FastAPI後端發送請求
-    file = {"file": img_bytes}
+    file = {"file": (filename, img_bytes, "image/jpeg")}
     response = requests.post("http://localhost:8000/predict", files=file)
     
     if response.status_code == 200:
