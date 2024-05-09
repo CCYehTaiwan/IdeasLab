@@ -1,24 +1,24 @@
 # Introduction
-這是一個能夠偵測人類的Web Application，使用方式是只要在左邊輸入框拖曳一張影像(png, jpg, jpeg)或是從地端上傳，就能夠偵測出人類並回傳結果
+This web application detects human figures in uploaded images. Users can simply drag and drop an image (supported formats: png, jpg, jpeg) into the input box on the left or upload it from their local storage. Detected results are then displayed on the user interface.
 
 
-# Download the repositiry
+## Download the repositiry
 ```bash
 git clone https://github.com/CCYehTaiwan/IdeasLab.git
 ```
 
-# Architecture
+# Architecture Overview
 ```bash
 |---IdeasLab
-|    |---backend
-|         |---main.py
-|         |---yolo_inference.py
-|         |---save_data.py
-|    |---frontend
-|         |---app.py
-|    |---.gitignore
-|    |---README.md
-|    |---requirement.txt
+     |---backend
+          |---main.py
+          |---yolo_inference.py
+         |---save_data.py
+     |---frontend
+          |---app.py
+     |---.gitignore
+     |---README.md
+     |---requirement.txt
 
 ```
 
@@ -29,19 +29,19 @@ python3 -m venv your_virtual_name
 source your_virtual_name/bin/activate
 ```
 
-## Intall package from requirement
+## Intall Required packages
 ```bash
 pip install -r requirement.txt
 ```
 
-## Implement the server
+## Running the server
 
-1. 執行frontend目錄下的app.py檔
+1. Start the frontend server
    ```bash
    python3 app.py
    ```
-2. 執行backend目錄下的main.py
+2. Start the backend server
    ```bash
    uvicorn main:app --reload
    ```
-3. 於Web Browser上輸入http://127.0.0.1:7860/
+3. Open a web browser and go to http://127.0.0.1:7860/ to view the application.
