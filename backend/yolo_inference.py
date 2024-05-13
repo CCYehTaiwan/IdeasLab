@@ -6,7 +6,6 @@ from save_data import *
 
 
 def save_json(image_data, boxes_data, save_dir):
-    
     os.makedirs(save_dir, exist_ok=True)
     
     combined_info = {

@@ -16,11 +16,10 @@ async def predict(file: UploadFile = File(...)):
     if not file.content_type or not file.content_type.startswith('image/'):
         raise HTTPException(status_code=400, detail="Invalid file type. Only images are allowed.")
     
-    # 確認文件類型是圖片
+    # check the type of image
     if not file.filename.lower().endswith(('.png', '.jpg', '.jpeg')):
         return HTTPException(status_code=400, content={"message": "Invalid file format. Please upload a PNG or JPG file."})
     
-    # 讀取影像
     image_data = await file.read()
     
     try:
